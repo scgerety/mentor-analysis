@@ -71,7 +71,7 @@ DOMAIN_VARS = [
     PSYCHOSOCIAL_SUPPORT,
 ]
 
-folder = "C:\\Users\\Sexg\\Documents\\PSI\\2024\\Survey Analysis\\Pre-Post Analysis\\"
+folder = dir_path = os.path.realpath(os.path.dirname(__file__))
 excel_file = "MET Pilot Results.xlsx"
 filepath = f"{folder}{excel_file}"
 output = "output.xlsx"
