@@ -5,6 +5,7 @@ Analysis of Mentor Evaluation Tool Data for Psychology Summer Institute
 import matplotlib.pyplot as plt
 import pandas as pd
 from radar import radar_factory
+import os
 
 
 TOOL = [ 
@@ -73,9 +74,9 @@ DOMAIN_VARS = [
 
 folder = dir_path = os.path.realpath(os.path.dirname(__file__))
 excel_file = "MET Pilot Results.xlsx"
-filepath = f"{folder}{excel_file}"
+filepath = os.path.join(folder, excel_file)
 output = "output.xlsx"
-output_path = f"{folder}{output}"
+output_path = os.path.join(filepath, output)
 
 def score_analyzer(filename: str, analyzed_file: str):
     df = pd.read_excel(filename, sheet_name="MET Pilot Results", header=0)
@@ -126,4 +127,4 @@ if __name__ == "__main__":
     )
     ax.plot(theta, df)
     ax.set_varlabels(spoke_lables)
-    plt.savefig(f"{folder}MentorEvaluationPSI.png")
+    plt.savefig(os.path.join(folder, "MentorEvaluationPSI.png"))
